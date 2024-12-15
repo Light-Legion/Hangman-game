@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">java</a> &gt; <a href="index.source.html" class="el_package">backend.academy.game</a> &gt; <span class="el_source">GameController.java</span></div><h1>GameController.java</h1><pre class="source lang-java linenums">package backend.academy.game;
+
+import backend.academy.dictionary.WordAndHint;
+import backend.academy.game.levels.Levels;
+import backend.academy.utils.ANSI;
+import backend.academy.utils.Message;
+import java.io.PrintStream;
+import java.util.Scanner;
+import lombok.Getter;
+
+public class GameController {
+
+    private final Scanner in;
+    private final PrintStream out;
+    @Getter private GameSession gameSession;
+
+<span class="fc" id="L17">    public GameController(Scanner in, PrintStream out) {</span>
+<span class="fc" id="L18">        this.in = in;</span>
+<span class="fc" id="L19">        this.out = out;</span>
+<span class="fc" id="L20">    }</span>
+
+    private static final String HELP_SHORTCUT = &quot;h&quot;;
+    private static final String HELP_LONGCUT = &quot;help&quot;;
+
+    public void start(WordDto wordDto, Levels level) {
+<span class="fc" id="L26">        gameSession = new GameSession(wordDto, level.steps().size() - 1);</span>
+<span class="fc" id="L27">        boolean guessResult = false;</span>
+
+<span class="fc" id="L29">        Message.displayStep(0);</span>
+<span class="fc" id="L30">        Message.displayLives(gameSession.maxAttempts() - gameSession.attemptsMade());</span>
+<span class="fc" id="L31">        Message.displayCurrentState(gameSession.currentAnswerState().toString());</span>
+<span class="fc" id="L32">        Message.displayUsedLetters(gameSession.getUsedLetters());</span>
+<span class="fc" id="L33">        Message.displayHint(&quot;&quot;);</span>
+
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        while (!gameSession.isGameOver()) {</span>
+
+<span class="fc" id="L37">            boolean isInputCorrect = false;</span>
+
+<span class="fc bfc" id="L39" title="All 2 branches covered.">            while (!isInputCorrect) {</span>
+
+<span class="fc" id="L41">                out.printf(&quot;%nВаш ввод: &quot;);</span>
+<span class="fc" id="L42">                String guess = in.nextLine().trim().toLowerCase();</span>
+
+<span class="fc bfc" id="L44" title="All 4 branches covered.">                if (HELP_SHORTCUT.equals(guess) || HELP_LONGCUT.equals(guess)) {</span>
+<span class="fc" id="L45">                    Message.displayHint(gameSession.getHint());</span>
+<span class="pc bpc" id="L46" title="1 of 4 branches missed.">                } else if (guess.matches(&quot;[а-я]&quot;) &amp;&amp; guess.length() == 1) {</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">                    if (gameSession.isUsedLetter(guess.charAt(0))) {</span>
+<span class="nc" id="L48">                        out.printf(ANSI.YELLOW + &quot;%nЭта буква уже использовалась!%n&quot; + ANSI.RESET);</span>
+<span class="nc" id="L49">                        continue;</span>
+                    }
+<span class="fc" id="L51">                    guessResult = gameSession.makeGuess(guess.charAt(0));</span>
+<span class="fc" id="L52">                    isInputCorrect = true;</span>
+                } else {
+<span class="fc" id="L54">                    out.printf(ANSI.RED + &quot;%nНекорректный ввод! Попробуйте еще раз.%n&quot; + ANSI.RESET);</span>
+                }
+
+<span class="fc" id="L57">            }</span>
+
+<span class="fc bfc" id="L59" title="All 2 branches covered.">            if (guessResult) {</span>
+<span class="fc" id="L60">                Message.success();</span>
+            } else {
+<span class="fc" id="L62">                Message.failure();</span>
+            }
+
+<span class="fc" id="L65">            Message.displayStep(level.steps().get(gameSession.attemptsMade()));</span>
+<span class="fc" id="L66">            Message.displayLives(gameSession.maxAttempts() - gameSession.attemptsMade());</span>
+<span class="fc" id="L67">            Message.displayCurrentState(gameSession.currentAnswerState().toString());</span>
+<span class="fc" id="L68">            Message.displayUsedLetters(gameSession.getUsedLetters());</span>
+<span class="fc" id="L69">            Message.displayHint(&quot;&quot;);</span>
+<span class="fc" id="L70">        }</span>
+
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        if (gameSession.isCurrentAnswerStateEqualToAnswer()) {</span>
+<span class="fc" id="L73">            Message.win();</span>
+        } else {
+<span class="fc" id="L75">            Message.lose(gameSession.answer().word());</span>
+        }
+<span class="fc" id="L77">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

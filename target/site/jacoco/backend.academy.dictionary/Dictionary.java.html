@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Dictionary.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">java</a> &gt; <a href="index.source.html" class="el_package">backend.academy.dictionary</a> &gt; <span class="el_source">Dictionary.java</span></div><h1>Dictionary.java</h1><pre class="source lang-java linenums">package backend.academy.dictionary;
+
+import backend.academy.utils.ANSI;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
+import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+import lombok.Getter;
+import lombok.extern.log4j.Log4j2;
+
+@Getter
+<span class="fc" id="L19">@Log4j2</span>
+public class Dictionary {
+
+    private final HashMap&lt;String, List&lt;WordDto&gt;&gt; dictionary;
+    private String category;
+
+<span class="fc" id="L25">    private final SecureRandom secureRandom = new SecureRandom();</span>
+    private static final int MIN_WORD_LENGTH = 2;
+    private static final int MAX_WORD_LENGTH = 24;
+
+<span class="fc" id="L29">    public Dictionary(boolean loadDictionary) {</span>
+<span class="fc" id="L30">        dictionary = new HashMap&lt;&gt;();</span>
+
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (loadDictionary) {</span>
+<span class="fc" id="L33">            PrintStream out = System.out;</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">            for (Category cat : Category.values()) {</span>
+                try {
+<span class="fc" id="L36">                    List&lt;WordDto&gt; wordDtos = readFile(cat.fileName());</span>
+<span class="fc" id="L37">                    dictionary.put(cat.displayName(), wordDtos);</span>
+<span class="nc" id="L38">                } catch (IOException ex) {</span>
+<span class="nc" id="L39">                    out.printf(ANSI.RED + ex.getMessage() + ANSI.RESET);</span>
+<span class="fc" id="L40">                }</span>
+            }
+        }
+<span class="fc" id="L43">    }</span>
+
+    private List&lt;WordDto&gt; readFile(String fileName) throws IOException {
+<span class="fc" id="L46">        List&lt;WordDto&gt; list = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L48">        try (BufferedReader reader = new BufferedReader(new InputStreamReader(</span>
+<span class="fc" id="L49">            Objects.requireNonNull(</span>
+<span class="fc" id="L50">                getClass().getClassLoader().getResourceAsStream(</span>
+                    &quot;categories_of_words/&quot; + fileName),
+                &quot;Файл не найден: &quot; + fileName), StandardCharsets.UTF_8))) {
+
+            String line;
+<span class="fc bfc" id="L55" title="All 2 branches covered.">            while ((line = reader.readLine()) != null) {</span>
+<span class="fc" id="L56">                String[] parts = line.split(&quot;:&quot;);</span>
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">                if (parts.length == 2) {</span>
+<span class="fc" id="L58">                    String word = parts[0].trim().toLowerCase();</span>
+<span class="fc" id="L59">                    String hint = parts[1].trim();</span>
+<span class="fc" id="L60">                    list.add(new WordDto(word, hint));</span>
+<span class="fc" id="L61">                } else {</span>
+<span class="nc" id="L62">                    throw new IOException(&quot;%nНекорректный файл категории &quot; + fileName + &quot;%n&quot;);</span>
+                }
+<span class="fc" id="L64">            }</span>
+        }
+
+<span class="fc" id="L67">        return list;</span>
+    }
+
+    public void tryToSetCategory(String category) {
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        if (dictionary.isEmpty()) {</span>
+<span class="fc" id="L72">            throw new IllegalStateException(&quot;%nОшибка! Данные словаря не загружены.%n&quot;);</span>
+        }
+
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        if (dictionary.containsKey(category)) {</span>
+<span class="fc" id="L76">            this.category = category;</span>
+        } else {
+<span class="fc" id="L78">            this.category = dictionary.keySet().stream()</span>
+<span class="fc" id="L79">                .toList()</span>
+<span class="fc" id="L80">                .get(secureRandom.nextInt(dictionary.keySet().size()));</span>
+        }
+<span class="fc" id="L82">    }</span>
+
+    public WordDto getRandomWord(String word) {
+<span class="fc bfc" id="L85" title="All 2 branches covered.">        if (category == null) {</span>
+<span class="fc" id="L86">            tryToSetCategory(&quot;&quot;);</span>
+        }
+
+<span class="fc" id="L89">        List&lt;WordDto&gt; filteredList = dictionary.get(category).stream()</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">            .filter(wordAndHint -&gt; !wordAndHint.word().equalsIgnoreCase(word))</span>
+<span class="fc" id="L91">            .toList();</span>
+
+<span class="fc bfc" id="L93" title="All 2 branches covered.">        if (filteredList.isEmpty()) {</span>
+<span class="fc" id="L94">            throw new NoSuchElementException(&quot;%nНедостаточно слов в словаре для данной категории.%n&quot;);</span>
+        }
+
+<span class="fc" id="L97">        WordDto wordDto = filteredList.get(secureRandom.nextInt(filteredList.size()));</span>
+
+<span class="fc bfc" id="L99" title="All 2 branches covered.">        if (wordDto.word().length() &lt; MIN_WORD_LENGTH</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">            || wordDto.word().length() &gt; MAX_WORD_LENGTH) {</span>
+<span class="fc" id="L101">            throw new IllegalArgumentException(&quot;%nНекорректная длина слова.%n&quot;);</span>
+        }
+
+<span class="fc" id="L104">        return wordDto;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

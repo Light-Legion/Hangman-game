@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Message.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">java</a> &gt; <a href="index.source.html" class="el_package">backend.academy.utils</a> &gt; <span class="el_source">Message.java</span></div><h1>Message.java</h1><pre class="source lang-java linenums">package backend.academy.utils;
+
+import java.io.PrintStream;
+import java.util.List;
+
+public final class Message {
+
+<span class="fc" id="L8">    private static final List&lt;String&gt; STEPS = List.of(</span>
+        &quot;&quot;&quot;
+             _______                                            \s
+             \\   / /                                            \s
+              \\_/ /                                             \s
+              |/|/                                              \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|    [TT]                                       \s
+              |/|     \\ \\                                       \s
+              |/|    __\\_\\__                                    \s
+              |/|___|\\\\\\\\\\\\\\|___________________________________\s
+              |/|_______________________________________________|
+              /__\\                                         /__\\ \s
+             /____\\                                       /____\\\s
+            &quot;&quot;&quot;,
+        &quot;&quot;&quot;
+             _____________________________________________      \s
+             \\   / /______________________________________|     \s
+              \\_/ /                                             \s
+              |/|/                                              \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|    [TT]                                       \s
+              |/|     \\ \\                                       \s
+              |/|    __\\_\\__                                    \s
+              |/|___|\\\\\\\\\\\\\\|___________________________________\s
+              |/|_______________________________________________|
+              /__\\                                         /__\\ \s
+             /____\\                                       /____\\\s
+            &quot;&quot;&quot;,
+
+        &quot;&quot;&quot;
+             _____________________________/{}\\____________      \s
+             \\   / /______________________|{}|____________|     \s
+              \\_/ /                       \\{}/                  \s
+              |/|/                         {}                   \s
+              |/|                          {}                   \s
+              |/|                          /\\                   \s
+              |/|                         /  \\                  \s
+              |/|                         \\__/                  \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|    [TT]                                       \s
+              |/|     \\ \\                                       \s
+              |/|    __\\_\\__                                    \s
+              |/|___|\\\\\\\\\\\\\\|___________________________________\s
+              |/|_______________________________________________|
+              /__\\                                         /__\\ \s
+             /____\\                                       /____\\\s
+            &quot;&quot;&quot;,
+
+        &quot;&quot;&quot;
+             _____________________________/{}\\____________      \s
+             \\   / /______________________|{}|____________|     \s
+              \\_/ /                       \\{}/                  \s
+              |/|/                         {}/\\_/\\              \s
+              |/|                          {/ O O \\             \s
+              |/|                           \\ &gt;Y&lt; /             \s
+              |/|                            \\_-_/              \s
+              |/|                            (|_|)              \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|                                               \s
+              |/|    [TT]                                       \s
+              |/|     \\ \\                                       \s
+              |/|    __\\_\\__                                    \s
+              |/|___|\\\\\\\\\\\\\\|___________________________________\s
+              |/|_______________________________________________|
+              /__\\                                         /__\\ \s
+             /____\\                                       /____\\\s
+            &quot;&quot;&quot;,
+
+        &quot;&quot;&quot;
+             _____________________________/{}\\____________      \s
+             \\   / /______________________|{}|____________|     \s
+              \\_/ /                       \\{}/                  \s
+              |/|/                         {}/\\_/\\              \s
+              |/|                          {/ O O \\             \s
+              |/|                           \\ &gt;Y&lt; /             \s
+              |/|                            \\_-_/              \s
+              |/|                            (|_|)              \s
+              |/|                            Y---Y              \s
+              |/|                            |WWW|              \s
+              |/|                            Y___Y              \s
+              |/|    [TT]                                       \s
+              |/|     \\ \\                                       \s
+              |/|    __\\_\\__                                    \s
+              |/|___|\\\\\\\\\\\\\\|___________________________________\s
+              |/|_______________________________________________|
+              /__\\                                         /__\\ \s
+             /____\\                                       /____\\\s
+            &quot;&quot;&quot;,
+
+        &quot;&quot;&quot;
+             _____________________________/{}\\____________      \s
+             \\   / /______________________|{}|____________|     \s
+              \\_/ /                       \\{}/                  \s
+              |/|/                         {}/\\_/\\              \s
+              |/|                          {/ O O \\             \s
+              |/|                           \\ &gt;Y&lt; /             \s
+              |/|                            \\_-_/              \s
+              |/|                            (|_|)              \s
+              |/|                          //Y---Y\\\\            \s
+              |/|                         // |WWW| \\\\           \s
+              |/|                       QQQ  Y___Y  QQQ         \s
+              |/|    [TT]                                       \s
+              |/|     \\ \\                                       \s
+              |/|    __\\_\\__                                    \s
+              |/|___|\\\\\\\\\\\\\\|___________________________________\s
+              |/|_______________________________________________|
+              /__\\                                         /__\\ \s
+             /____\\                                       /____\\\s
+            &quot;&quot;&quot;,
+
+        &quot;&quot;&quot;
+             _____________________________/{}\\____________      \s
+             \\   / /______________________|{}|____________|     \s
+              \\_/ /                       \\{}/                  \s
+              |/|/                         {}/\\_/\\              \s
+              |/|                          {/ O O \\             \s
+              |/|                           \\ &gt;Y&lt; /             \s
+              |/|                            \\_-_/              \s
+              |/|                            (|_|)              \s
+              |/|                          //Y---Y\\\\            \s
+              |/|                         // |WWW| \\\\           \s
+              |/|                       QQQ  Y___Y  QQQ         \s
+              |/|    [TT]                   //   \\\\             \s
+              |/|     \\ \\                  WW     WW            \s
+              |/|    __\\_\\__               WW     WW            \s
+              |/|___|\\\\\\\\\\\\\\|_____________QQQ ____QQQ __________\s
+              |/|_______________________________________________|
+              /__\\                                         /__\\ \s
+             /____\\                                       /____\\\s
+            &quot;&quot;&quot;,
+
+        &quot;&quot;&quot;
+             _____________________________/{}\\____________      \s
+             \\   / /______________________|{}|____________|     \s
+              \\_/ /                       \\{}/                  \s
+              |/|/                         {}/\\_/\\              \s
+              |/|                          {/ * * \\             \s
+              |/|                           \\ &gt;Y&lt; /             \s
+              |/|                            \\_U_/              \s
+              |/|                            (|_|)              \s
+              |/|                          //Y---Y\\\\            \s
+              |/|                         // |WWW| \\\\           \s
+              |/|                       QQQ  Y___Y  QQQ         \s
+              |/|       [TT]                //   \\\\             \s
+              |/|       / /                WW     WW            \s
+              |/|    __/_/__               WW     WW            \s
+              |/|___|\\\\\\\\\\\\\\|__________   QQQ     QQQ  _________\s
+              |/|______________________\\\\             //________|
+              /__\\                      \\\\           //    /__\\ \s
+             /____\\                      \\\\         //    /____\\\s
+            &quot;&quot;&quot;
+    );
+
+<span class="fc" id="L177">    private static final PrintStream OUT = System.out;</span>
+
+    private Message() {
+    }
+
+    public static void displayStep(int step) {
+<span class="pc bpc" id="L183" title="2 of 4 branches missed.">        if (step &lt; 0 || step &gt;= STEPS.size()) {</span>
+<span class="nc" id="L184">            OUT.println(STEPS.getLast());</span>
+        } else {
+<span class="fc" id="L186">            OUT.printf(STEPS.get(step));</span>
+        }
+<span class="fc" id="L188">    }</span>
+
+    public static void displayLives(int remainingLives) {
+<span class="fc" id="L191">        OUT.printf(&quot;%nОсталось жизней: &quot; + ANSI.RED);</span>
+<span class="fc bfc" id="L192" title="All 2 branches covered.">        for (int i = 0; i &lt; remainingLives; i++) {</span>
+<span class="fc" id="L193">            OUT.print(&quot;❤ &quot;);</span>
+        }
+<span class="fc bfc" id="L195" title="All 2 branches covered.">        if (remainingLives &lt;= 0) {</span>
+<span class="fc" id="L196">            OUT.printf(&quot;(0)%s&quot;, ANSI.RESET);</span>
+        } else {
+<span class="fc" id="L198">            OUT.printf(&quot;(%d)%s&quot;, remainingLives, ANSI.RESET);</span>
+        }
+<span class="fc" id="L200">    }</span>
+
+    public static void displayCurrentState(String currentAnswerState) {
+<span class="fc" id="L203">        OUT.printf(&quot;%nСлово: %s&quot;, ANSI.GREEN + currentAnswerState + ANSI.RESET);</span>
+<span class="fc" id="L204">    }</span>
+
+    public static void displayUsedLetters(String usedLetters) {
+<span class="fc" id="L207">        OUT.printf(&quot;%nИспользованные буквы: %s&quot;, ANSI.YELLOW + usedLetters + ANSI.RESET);</span>
+<span class="fc" id="L208">    }</span>
+
+    public static void displayHint(String hint) {
+<span class="fc bfc" id="L211" title="All 2 branches covered.">        if (hint.isEmpty()) {</span>
+<span class="fc" id="L212">            OUT.printf(&quot;%nДля включения подсказки введите 'h' или 'help'&quot;);</span>
+        } else {
+<span class="fc" id="L214">            OUT.printf(&quot;%nПодсказка: %s&quot;, ANSI.GREEN + hint + ANSI.RESET);</span>
+        }
+<span class="fc" id="L216">    }</span>
+
+    public static void win() {
+<span class="fc" id="L219">        OUT.printf(ANSI.GREEN + &quot;%n%nПоздравляем! Вы угадали слово!%n&quot; + ANSI.RESET);</span>
+<span class="fc" id="L220">    }</span>
+
+    public static void lose(String word) {
+<span class="fc" id="L223">        OUT.printf(ANSI.RED + &quot;%n%nИгра окончена! Вы проиграли!%n&quot; + ANSI.RESET);</span>
+<span class="fc" id="L224">        OUT.printf(&quot;%nЗагаданное слово: %s%n&quot;, ANSI.GREEN + word + ANSI.RESET);</span>
+<span class="fc" id="L225">    }</span>
+
+    public static void success() {
+<span class="fc" id="L228">        OUT.printf(ANSI.GREEN +  &quot;%nУспех! Вы угадали букву!%n&quot; + ANSI.RESET);</span>
+<span class="fc" id="L229">    }</span>
+
+    public static void failure() {
+<span class="fc" id="L232">        OUT.printf(ANSI.RED + &quot;%nПровал! Вы не угадали букву!%n&quot; + ANSI.RESET);</span>
+<span class="fc" id="L233">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

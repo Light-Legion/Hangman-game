@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameSession.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">java</a> &gt; <a href="index.source.html" class="el_package">backend.academy.game</a> &gt; <span class="el_source">GameSession.java</span></div><h1>GameSession.java</h1><pre class="source lang-java linenums">package backend.academy.game;
+
+import backend.academy.dictionary.WordAndHint;
+import java.util.HashSet;
+import lombok.Getter;
+
+@Getter
+public class GameSession {
+
+    private final WordDto answer;
+    private final int maxAttempts;
+    private final StringBuilder currentAnswerState;
+    private int attemptsMade;
+
+    private final HashSet&lt;Character&gt; usedLetters;
+
+<span class="fc" id="L17">    public GameSession(WordDto answer, int maxAttempts) {</span>
+<span class="fc" id="L18">        this.answer = answer;</span>
+<span class="fc" id="L19">        this.maxAttempts = maxAttempts;</span>
+<span class="fc" id="L20">        this.currentAnswerState = new StringBuilder(&quot;_&quot;.repeat(answer.word().length()));</span>
+<span class="fc" id="L21">        this.attemptsMade = 0;</span>
+<span class="fc" id="L22">        this.usedLetters = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L23">    }</span>
+
+    public String getHint() {
+<span class="fc" id="L26">        return answer.hint();</span>
+    }
+
+    public String getUsedLetters() {
+<span class="fc" id="L30">        return usedLetters.toString();</span>
+    }
+
+    public boolean isUsedLetter(char letter) {
+<span class="fc" id="L34">        return usedLetters.contains(letter);</span>
+    }
+
+    public boolean isGameOver() {
+<span class="fc bfc" id="L38" title="All 4 branches covered.">        return attemptsMade &gt;= maxAttempts || isCurrentAnswerStateEqualToAnswer();</span>
+    }
+
+    public boolean isCurrentAnswerStateEqualToAnswer() {
+<span class="fc" id="L42">        return currentAnswerState.toString().equals(answer.word());</span>
+    }
+
+    public boolean makeGuess(char guess) {
+
+<span class="fc" id="L47">        boolean isCorrect = false;</span>
+
+<span class="fc" id="L49">        usedLetters.add(guess);</span>
+
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        for (int i = 0; i &lt; answer.word().length(); i++) {</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">            if (answer.word().charAt(i) == guess) {</span>
+<span class="fc" id="L53">                currentAnswerState.setCharAt(i, guess);</span>
+<span class="fc" id="L54">                isCorrect = true;</span>
+            }
+        }
+
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (!isCorrect) {</span>
+<span class="fc" id="L59">            attemptsMade++;</span>
+        }
+
+<span class="fc" id="L62">        return isCorrect;</span>
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

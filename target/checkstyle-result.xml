@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.17.0">
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\dictionary\Category.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\dictionary\Dictionary.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\dictionary\WordDto.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\game\GameController.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\game\GameSession.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\game\levels\Levels.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\game\Menu.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\game\Settings.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\Main.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\caffeine\CaffeineExample.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\collections\CreateTreeMapCaseInsensitiveOrder.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\collections\Fastutil.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\collections\IterateOverLinkedHashMap.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\collections\PriorityQueueCustomComparator.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\collections\StreamApi.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\commonscodec\CommonsCodecExample.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\commonslang3\CommonsLang3Example.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\comparator\ComparableExample.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\comparator\ComparatorExample.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\comparator\Employee.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\guava\GuavaExample.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\guice\AppConfiguration.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\guice\BaseAppModule.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\guice\ConfigModule.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\guice\DependentService.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\guice\GuiceExample.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\guice\OverrideModule.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\guice\Service.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\java21\RecordPatterns.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\java21\SequencedCollections.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\java21\SwitchPatternMatching.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\java21\UnnamedClasses.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\java21\UnnamedVariables.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\jcommander\CliParams.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\jcommander\JCommanderExample.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\logging\ErrorLogging.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\logging\LazyEvaluation.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\lombok\CalcService.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\lombok\Kennel.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\mapstruct\Car.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\mapstruct\CarDto.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\mapstruct\CarMapper.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\mapstruct\MapstructExample.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\mapstruct\Person.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\samples\mapstruct\PersonDto.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\utils\ANSI.java">
+</file>
+<file name="C:\Users\user\JavaProjects\backend_academy_2024_project_1-java-Light-Legion\src\main\java\backend\academy\utils\Message.java">
+</file>
+</checkstyle>
